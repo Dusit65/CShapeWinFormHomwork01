@@ -37,19 +37,20 @@
             this.tbAmountPeople = new System.Windows.Forms.TextBox();
             this.lbPeople = new System.Windows.Forms.Label();
             this.gbNote = new System.Windows.Forms.GroupBox();
-            this.lbNote1 = new System.Windows.Forms.Label();
             this.lbNote2 = new System.Windows.Forms.Label();
+            this.lbNote1 = new System.Windows.Forms.Label();
             this.btClose = new System.Windows.Forms.Button();
             this.btCancel = new System.Windows.Forms.Button();
             this.btCal = new System.Windows.Forms.Button();
             this.gbResult = new System.Windows.Forms.GroupBox();
-            this.lbResultHead = new System.Windows.Forms.Label();
-            this.lbTopic = new System.Windows.Forms.Label();
-            this.lbTopicResult = new System.Windows.Forms.Label();
-            this.lbAmountResult = new System.Windows.Forms.Label();
-            this.lbAmountPeople2 = new System.Windows.Forms.Label();
-            this.lbTotalCostResult = new System.Windows.Forms.Label();
+            this.lbShowPay = new System.Windows.Forms.Label();
             this.lbTotalCost = new System.Windows.Forms.Label();
+            this.lbShowPeople = new System.Windows.Forms.Label();
+            this.lbAmountPeople2 = new System.Windows.Forms.Label();
+            this.lbShowTopic = new System.Windows.Forms.Label();
+            this.lbTopic = new System.Windows.Forms.Label();
+            this.lbResultHead = new System.Windows.Forms.Label();
+            this.btBack = new System.Windows.Forms.Button();
             this.gbNote.SuspendLayout();
             this.gbResult.SuspendLayout();
             this.SuspendLayout();
@@ -81,39 +82,33 @@
             // rdAndroid
             // 
             this.rdAndroid.AutoSize = true;
-            this.rdAndroid.Checked = true;
             this.rdAndroid.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.rdAndroid.Location = new System.Drawing.Point(109, 107);
             this.rdAndroid.Name = "rdAndroid";
             this.rdAndroid.Size = new System.Drawing.Size(248, 19);
             this.rdAndroid.TabIndex = 4;
-            this.rdAndroid.TabStop = true;
             this.rdAndroid.Text = "อบรม Android Developer (คนละ 1,200 บาท)";
             this.rdAndroid.UseVisualStyleBackColor = true;
             // 
             // rdiOS
             // 
             this.rdiOS.AutoSize = true;
-            this.rdiOS.Checked = true;
             this.rdiOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.rdiOS.Location = new System.Drawing.Point(109, 132);
             this.rdiOS.Name = "rdiOS";
             this.rdiOS.Size = new System.Drawing.Size(226, 19);
             this.rdiOS.TabIndex = 5;
-            this.rdiOS.TabStop = true;
             this.rdiOS.Text = "อบรม iOS Developer (คนละ 1,400 บาท)";
             this.rdiOS.UseVisualStyleBackColor = true;
             // 
             // rdPHP
             // 
             this.rdPHP.AutoSize = true;
-            this.rdPHP.Checked = true;
             this.rdPHP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.rdPHP.Location = new System.Drawing.Point(109, 157);
             this.rdPHP.Name = "rdPHP";
             this.rdPHP.Size = new System.Drawing.Size(231, 19);
             this.rdPHP.TabIndex = 6;
-            this.rdPHP.TabStop = true;
             this.rdPHP.Text = "อบรม PHP Developer (คนละ 1,600 บาท)";
             this.rdPHP.UseVisualStyleBackColor = true;
             // 
@@ -133,6 +128,7 @@
             this.tbAmountPeople.Name = "tbAmountPeople";
             this.tbAmountPeople.Size = new System.Drawing.Size(134, 20);
             this.tbAmountPeople.TabIndex = 8;
+            this.tbAmountPeople.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAmountPeople_KeyPress);
             // 
             // lbPeople
             // 
@@ -156,15 +152,6 @@
             this.gbNote.TabStop = false;
             this.gbNote.Text = "หมายเหตุ";
             // 
-            // lbNote1
-            // 
-            this.lbNote1.AutoSize = true;
-            this.lbNote1.Location = new System.Drawing.Point(9, 22);
-            this.lbNote1.Name = "lbNote1";
-            this.lbNote1.Size = new System.Drawing.Size(155, 15);
-            this.lbNote1.TabIndex = 0;
-            this.lbNote1.Text = "- กรณีเข้าอบรม 2-4 คน ลด 5%";
-            // 
             // lbNote2
             // 
             this.lbNote2.AutoSize = true;
@@ -173,6 +160,15 @@
             this.lbNote2.Size = new System.Drawing.Size(176, 15);
             this.lbNote2.TabIndex = 1;
             this.lbNote2.Text = "- กรณีเข้าอบรม 5 คนขึ้นไปลด 10%";
+            // 
+            // lbNote1
+            // 
+            this.lbNote1.AutoSize = true;
+            this.lbNote1.Location = new System.Drawing.Point(9, 22);
+            this.lbNote1.Name = "lbNote1";
+            this.lbNote1.Size = new System.Drawing.Size(155, 15);
+            this.lbNote1.TabIndex = 0;
+            this.lbNote1.Text = "- กรณีเข้าอบรม 2-4 คน ลด 5%";
             // 
             // btClose
             // 
@@ -186,6 +182,7 @@
             this.btClose.Text = "ปิดหน้าจอ";
             this.btClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btClose.UseVisualStyleBackColor = false;
+            this.btClose.Click += new System.EventHandler(this.btClose_Click);
             // 
             // btCancel
             // 
@@ -199,6 +196,7 @@
             this.btCancel.Text = "ยกเลิก";
             this.btCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btCancel.UseVisualStyleBackColor = false;
+            this.btCancel.Click += new System.EventHandler(this.btCancel_Click);
             // 
             // btCal
             // 
@@ -212,15 +210,16 @@
             this.btCal.Text = "คำนวณ";
             this.btCal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btCal.UseVisualStyleBackColor = false;
+            this.btCal.Click += new System.EventHandler(this.btCal_Click);
             // 
             // gbResult
             // 
             this.gbResult.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.gbResult.Controls.Add(this.lbTotalCostResult);
+            this.gbResult.Controls.Add(this.lbShowPay);
             this.gbResult.Controls.Add(this.lbTotalCost);
-            this.gbResult.Controls.Add(this.lbAmountResult);
+            this.gbResult.Controls.Add(this.lbShowPeople);
             this.gbResult.Controls.Add(this.lbAmountPeople2);
-            this.gbResult.Controls.Add(this.lbTopicResult);
+            this.gbResult.Controls.Add(this.lbShowTopic);
             this.gbResult.Controls.Add(this.lbTopic);
             this.gbResult.Controls.Add(this.lbResultHead);
             this.gbResult.Location = new System.Drawing.Point(425, 69);
@@ -228,7 +227,71 @@
             this.gbResult.Size = new System.Drawing.Size(310, 349);
             this.gbResult.TabIndex = 14;
             this.gbResult.TabStop = false;
-            this.gbResult.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // lbShowPay
+            // 
+            this.lbShowPay.AutoSize = true;
+            this.lbShowPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbShowPay.ForeColor = System.Drawing.Color.Red;
+            this.lbShowPay.Location = new System.Drawing.Point(117, 271);
+            this.lbShowPay.Name = "lbShowPay";
+            this.lbShowPay.Size = new System.Drawing.Size(55, 24);
+            this.lbShowPay.TabIndex = 20;
+            this.lbShowPay.Text = "XXX";
+            // 
+            // lbTotalCost
+            // 
+            this.lbTotalCost.AutoSize = true;
+            this.lbTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbTotalCost.Location = new System.Drawing.Point(94, 227);
+            this.lbTotalCost.Name = "lbTotalCost";
+            this.lbTotalCost.Size = new System.Drawing.Size(107, 15);
+            this.lbTotalCost.TabIndex = 19;
+            this.lbTotalCost.Text = "ค่าอบรมที่ต้องชำระ";
+            // 
+            // lbShowPeople
+            // 
+            this.lbShowPeople.AutoSize = true;
+            this.lbShowPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbShowPeople.ForeColor = System.Drawing.Color.Red;
+            this.lbShowPeople.Location = new System.Drawing.Point(126, 178);
+            this.lbShowPeople.Name = "lbShowPeople";
+            this.lbShowPeople.Size = new System.Drawing.Size(55, 24);
+            this.lbShowPeople.TabIndex = 18;
+            this.lbShowPeople.Text = "XXX";
+            // 
+            // lbAmountPeople2
+            // 
+            this.lbAmountPeople2.AutoSize = true;
+            this.lbAmountPeople2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbAmountPeople2.Location = new System.Drawing.Point(109, 140);
+            this.lbAmountPeople2.Name = "lbAmountPeople2";
+            this.lbAmountPeople2.Size = new System.Drawing.Size(73, 15);
+            this.lbAmountPeople2.TabIndex = 17;
+            this.lbAmountPeople2.Text = "จำนวนผู้เข้า";
+            // 
+            // lbShowTopic
+            // 
+            this.lbShowTopic.AutoSize = true;
+            this.lbShowTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbShowTopic.ForeColor = System.Drawing.Color.Red;
+            this.lbShowTopic.Location = new System.Drawing.Point(126, 100);
+            this.lbShowTopic.Name = "lbShowTopic";
+            this.lbShowTopic.Size = new System.Drawing.Size(55, 24);
+            this.lbShowTopic.TabIndex = 16;
+            this.lbShowTopic.Text = "XXX";
+            this.lbShowTopic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbShowTopic.Click += new System.EventHandler(this.lbShowTopic_Click);
+            // 
+            // lbTopic
+            // 
+            this.lbTopic.AutoSize = true;
+            this.lbTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbTopic.Location = new System.Drawing.Point(109, 63);
+            this.lbTopic.Name = "lbTopic";
+            this.lbTopic.Size = new System.Drawing.Size(87, 15);
+            this.lbTopic.TabIndex = 15;
+            this.lbTopic.Text = "เข้าอบรมหัวข้อ";
             // 
             // lbResultHead
             // 
@@ -241,74 +304,22 @@
             this.lbResultHead.TabIndex = 15;
             this.lbResultHead.Text = "สรุปข้อมูล";
             // 
-            // lbTopic
+            // btBack
             // 
-            this.lbTopic.AutoSize = true;
-            this.lbTopic.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbTopic.Location = new System.Drawing.Point(109, 63);
-            this.lbTopic.Name = "lbTopic";
-            this.lbTopic.Size = new System.Drawing.Size(87, 15);
-            this.lbTopic.TabIndex = 15;
-            this.lbTopic.Text = "เข้าอบรมหัวข้อ";
-            // 
-            // lbTopicResult
-            // 
-            this.lbTopicResult.AutoSize = true;
-            this.lbTopicResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbTopicResult.ForeColor = System.Drawing.Color.Red;
-            this.lbTopicResult.Location = new System.Drawing.Point(126, 97);
-            this.lbTopicResult.Name = "lbTopicResult";
-            this.lbTopicResult.Size = new System.Drawing.Size(55, 24);
-            this.lbTopicResult.TabIndex = 16;
-            this.lbTopicResult.Text = "XXX";
-            // 
-            // lbAmountResult
-            // 
-            this.lbAmountResult.AutoSize = true;
-            this.lbAmountResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbAmountResult.ForeColor = System.Drawing.Color.Red;
-            this.lbAmountResult.Location = new System.Drawing.Point(126, 178);
-            this.lbAmountResult.Name = "lbAmountResult";
-            this.lbAmountResult.Size = new System.Drawing.Size(55, 24);
-            this.lbAmountResult.TabIndex = 18;
-            this.lbAmountResult.Text = "XXX";
-            // 
-            // lbAmountPeople2
-            // 
-            this.lbAmountPeople2.AutoSize = true;
-            this.lbAmountPeople2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbAmountPeople2.Location = new System.Drawing.Point(109, 140);
-            this.lbAmountPeople2.Name = "lbAmountPeople2";
-            this.lbAmountPeople2.Size = new System.Drawing.Size(73, 15);
-            this.lbAmountPeople2.TabIndex = 17;
-            this.lbAmountPeople2.Text = "จำนวนผู้เข้า";
-            // 
-            // lbTotalCostResult
-            // 
-            this.lbTotalCostResult.AutoSize = true;
-            this.lbTotalCostResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbTotalCostResult.ForeColor = System.Drawing.Color.Red;
-            this.lbTotalCostResult.Location = new System.Drawing.Point(127, 271);
-            this.lbTotalCostResult.Name = "lbTotalCostResult";
-            this.lbTotalCostResult.Size = new System.Drawing.Size(55, 24);
-            this.lbTotalCostResult.TabIndex = 20;
-            this.lbTotalCostResult.Text = "XXX";
-            // 
-            // lbTotalCost
-            // 
-            this.lbTotalCost.AutoSize = true;
-            this.lbTotalCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lbTotalCost.Location = new System.Drawing.Point(94, 227);
-            this.lbTotalCost.Name = "lbTotalCost";
-            this.lbTotalCost.Size = new System.Drawing.Size(107, 15);
-            this.lbTotalCost.TabIndex = 19;
-            this.lbTotalCost.Text = "ค่าอบรมที่ต้องชำระ";
+            this.btBack.Location = new System.Drawing.Point(751, 20);
+            this.btBack.Name = "btBack";
+            this.btBack.Size = new System.Drawing.Size(28, 23);
+            this.btBack.TabIndex = 20;
+            this.btBack.Text = "<";
+            this.btBack.UseVisualStyleBackColor = true;
+            this.btBack.Click += new System.EventHandler(this.btBack_Click);
             // 
             // FrmHomework4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 476);
+            this.Controls.Add(this.btBack);
             this.Controls.Add(this.gbResult);
             this.Controls.Add(this.btClose);
             this.Controls.Add(this.btCancel);
@@ -324,6 +335,7 @@
             this.Controls.Add(this.lbHead);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmHomework4";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "โปรแกรมการบัาน4";
             this.gbNote.ResumeLayout(false);
             this.gbNote.PerformLayout();
@@ -352,11 +364,12 @@
         private System.Windows.Forms.Button btCal;
         private System.Windows.Forms.GroupBox gbResult;
         private System.Windows.Forms.Label lbResultHead;
-        private System.Windows.Forms.Label lbTopicResult;
+        private System.Windows.Forms.Label lbShowTopic;
         private System.Windows.Forms.Label lbTopic;
-        private System.Windows.Forms.Label lbAmountResult;
+        private System.Windows.Forms.Label lbShowPeople;
         private System.Windows.Forms.Label lbAmountPeople2;
-        private System.Windows.Forms.Label lbTotalCostResult;
+        private System.Windows.Forms.Label lbShowPay;
         private System.Windows.Forms.Label lbTotalCost;
+        private System.Windows.Forms.Button btBack;
     }
 }
